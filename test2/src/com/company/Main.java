@@ -15,30 +15,20 @@ public class Main {
         try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(file))){
             Class.forName(connectJ.getCLASSFORNAME());
             Connection connection = DriverManager.getConnection(connectJ.getURL(),connectJ.getUSER(),connectJ.getPASSWORD());
-            String query = "select * from carsdb.car";
+            String query = "call getReport();";
             Statement statement = connection.createStatement();
             ResultSet resSet = statement.executeQuery(query);
              while (resSet.next()){
-                 int id;
-                 String Mark;
-                 String Number;
-                 String DriverId;
+                 String mark;
+                 String number_column;
 
+                 mark = resSet.getString("Mark");
+                 number_column = resSet.getString("Number");
 
-                 id = resSet.getInt("id");
-                 Mark = resSet.getString("Mark");
-                 Number = resSet.getString("Number");
-                 DriverId = resSet.getString("DriverId");
+                 writer.write(String.format("%s\t%s\n", mark, number_column));
 
-
-                 Carsbd carsbd = new Carsbd(id,Mark,Number,DriverId);
-                 writer.write("carsbd");
-
-                 System.out.println(carsbd + file);
-
+                 System.out.println();
              }
-
-
 
             if (connection.isClosed()) {
                 connection.close();

@@ -1,10 +1,10 @@
 package com.company;
 
 public class ConnectJ {
-    private String URL = "jdbc:mysql://localhost:3307/carsdb?autoReconnect=true&useSSL=false";
+    private String URL = "jdbc:mysql://localhost:3306/carsdb?autoReconnect=true&useSSL=false";
     private String PASSWORD = "3851368";
     private String USER = "root";
-    private String CLASSFORNAME = "com.mysql.jdbc.Driver";
+    private String CLASSFORNAME = "com.mysql.cj.jdbc.Driver";
 
     public String getPASSWORD() {
         return this.PASSWORD;

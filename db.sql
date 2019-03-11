@@ -54,6 +54,8 @@ UNLOCK TABLES;
 
 
 
+DROP PROCEDURE IF EXISTS `getReport`;
+
 CREATE PROCEDURE getReport()
 BEGIN
   SELECT c.Mark, c.Number, c.Type, f.Mark as Fuel, CONCAT(d.Surname, ' ', d.Name, ' ', d.Patronymic) as Name, c.AverageConsumption, c.OdometerPreviousMonth, c.OdometerCurrentMonth, (c.OdometerCurrentMonth - c.OdometerPreviousMonth) * (f.Price * c.AverageConsumption / 100 ) as PricePerMonth FROM  Car c LEFT JOIN Fuel f ON c.FuelId = f.Id  LEFT JOIN driver d ON c.DriverId = d.Id;
