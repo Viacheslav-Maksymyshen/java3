@@ -1,15 +1,8 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
-# compiled output
-/dist
-/tmp
-/out-tsc
-
-# dependencies
-/node_modules
-
 # IDEs and editors
 /.idea
+/test2/.idea
 .project
 .classpath
 .c9/
@@ -17,19 +10,6 @@
 .settings/
 *.sublime-workspace
 
-# IDE - VSCode
-/.vscode
-
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
-
-# System Files
-.DS_Store
-Thumbs.db
+/test2/out
+/test2/test2.iml
+/test2/Отчет.txt
